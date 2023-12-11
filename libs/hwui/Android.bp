@@ -167,7 +167,7 @@ cc_defaults {
         instrumentation: true,
         profile_file: "hwui/hwui.profdata",
         benchmarks: ["hwui"],
-        enable_profile_use: true,
+        enable_profile_use: false,
     },
 }
 
