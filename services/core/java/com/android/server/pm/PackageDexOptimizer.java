@@ -785,7 +785,8 @@ public class PackageDexOptimizer {
             Slog.wtf(TAG, "Unexpected exception when calling dexoptNeeded on " + path, e);
             return DEX_OPT_FAILED;
         }
-        return adjustDexoptNeeded(dexoptNeeded);
+		return 0; // XC-TODO, need dex2oat support
+        //return adjustDexoptNeeded(dexoptNeeded);
     }
 
     /** Returns true if the compiler filter depends on profiles (e.g speed-profile). */
