@@ -1656,7 +1656,8 @@ public final class StrictMode {
             if (tooManyViolationsThisLoop()) {
                 return;
             }
-            startHandlingViolationException(new DiskReadViolation());
+			return;
+            // startHandlingViolationException(new DiskReadViolation());
         }
 
         // Part of BlockGuard.Policy interface:
