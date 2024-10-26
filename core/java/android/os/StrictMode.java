@@ -1465,6 +1465,7 @@ public final class StrictMode {
                 }
             }
         } else if (Build.IS_ENG) {
+			/*
             // Detect everything in bundled apps
             if (isBundledSystemApp(ai)) {
                 builder.detectAll();
@@ -1472,6 +1473,7 @@ public final class StrictMode {
                 builder.penaltyLog();
                 builder.penaltyFlashScreen();
             }
+			*/
         }
 
         setThreadPolicy(builder.build());
@@ -1505,11 +1507,13 @@ public final class StrictMode {
             }
         } else if (Build.IS_ENG) {
             // Detect everything in bundled apps
+			/* XC_TODO: hack, disable strict mode check
             if (isBundledSystemApp(ai)) {
                 builder.detectAll();
                 builder.penaltyDropBox();
                 builder.penaltyLog();
             }
+			*/
         }
 
         setVmPolicy(builder.build());
@@ -1612,7 +1616,7 @@ public final class StrictMode {
             if (tooManyViolationsThisLoop()) {
                 return;
             }
-            startHandlingViolationException(new DiskWriteViolation());
+            // startHandlingViolationException(new DiskWriteViolation());
         }
 
         // Not part of BlockGuard.Policy; just part of StrictMode:
@@ -2692,7 +2696,7 @@ public final class StrictMode {
             // StrictMode not enabled.
             return;
         }
-        ((AndroidBlockGuardPolicy) policy).onCustomSlowCall(name);
+        // ((AndroidBlockGuardPolicy) policy).onCustomSlowCall(name);
     }
 
     /**
@@ -2709,7 +2713,7 @@ public final class StrictMode {
             // StrictMode not enabled.
             return;
         }
-        ((AndroidBlockGuardPolicy) policy).onResourceMismatch(tag);
+        // ((AndroidBlockGuardPolicy) policy).onResourceMismatch(tag);
     }
 
     /** @hide */
@@ -2719,7 +2723,7 @@ public final class StrictMode {
             // StrictMode not enabled.
             return;
         }
-        policy.onUnbufferedIO();
+        // policy.onUnbufferedIO();
     }
 
     /** @hide */
@@ -2729,7 +2733,7 @@ public final class StrictMode {
             // StrictMode not enabled.
             return;
         }
-        policy.onReadFromDisk();
+        //policy.onReadFromDisk();
     }
 
     /** @hide */
@@ -2739,7 +2743,7 @@ public final class StrictMode {
             // StrictMode not enabled.
             return;
         }
-        policy.onWriteToDisk();
+        // policy.onWriteToDisk();
     }
 
     @GuardedBy("StrictMode.class")
